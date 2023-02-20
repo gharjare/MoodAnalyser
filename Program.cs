@@ -7,11 +7,16 @@
             Console.WriteLine("Welcome to moodanalyser test");
             
         }
-        public string AnalyzeMood(string message)
+        public class MoodAnalyser
         {
-            if (message.ToLower().Contains("Sad"))
-                return "Sad";
-            return "Happy";
+            public string AnalyzeMood(string message)
+            {
+                if (message.ToLower().Contains("Sad"))
+                    return "Sad";
+                return "Happy";
+            }
+
+
         }
     }
 }
