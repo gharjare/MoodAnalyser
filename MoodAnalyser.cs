@@ -14,17 +14,21 @@ namespace MoodAnalyserTest
             this.message = message;
         }
 
-        public string AnalyzeMood(string message)
+        public string AnalyzeMood()
         {
             try
             {
+                if (message.ToLower().Equals(string.Empty))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY, "Message is null");
+                }
                 if (message.ToLower().Contains("Sad"))
                     return "Sad";
                 return "Happy";
             }
             catch (MoodAnalyserException ex)
             {
-                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL, "");
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL, "Message is null");
             }
         }
 
